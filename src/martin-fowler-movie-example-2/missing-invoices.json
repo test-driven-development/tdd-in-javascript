@@ -1,0 +1,17 @@
+[
+  {
+    "customer": "BigCo",
+    "performances": [
+      {
+        "test-case": "comedy audience < 20",
+        "playID": "as-like",
+        "audience": 15
+      },
+      {
+        "test-case": "tragedy audience < 30",
+        "playID": "othello",
+        "audience": 20
+      }
+    ]
+  }
+]

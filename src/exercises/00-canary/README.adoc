@@ -1,0 +1,18 @@
+= tdd in javascript:
+
+----
+the canary (in a coal mine) test
+----
+
+http://bit.ly/tdd-online-instruction-01-canary-draft-01[video-draft]
+
+*objectives:*
+
+* general test environment
+* test suite
+* tests
+* assertions
+* green bar
+* console output should read like a spec
+* red bar
+* assertion message

@@ -1,0 +1,28 @@
+= tdd in javascript:
+
+----
+first test - fahrenheit to celsius conversion
+----
+
+http://bit.ly/tdd-online-instruction-02-fahrenheit-2-celsius-draft-01[video-draft]
+
+*objectives:*
+
+* tdd workflow
+* tdd is fundamentally code design
+* code coverage/regression protection/etc.: side-effects
+* test lists are design-by-example
+* examples are concrete
+* design behavior and test data with a test list
+* commit the design
+* test assertions are API designs
+* run the assertion and see it fail
+* compiler errors and assertion messages in the console drive the code
+* write only enough code to change the console message
+* commit after the green bar
+* refactor via the 4 rules
+* commit after refactor
+* push after green test suite
+
+
+

@@ -1,0 +1,11 @@
+= tdd in javascript:
+
+link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
+
+.*objectives:*
+- learn the fundamental refactorings used every day in practice
+- understand what it means to _refactor safely_
+- learn the value of an automated suite of unit tests
+- reinforce membership in the _limited red society_
+- follow the steps in link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
+** extract switch statement

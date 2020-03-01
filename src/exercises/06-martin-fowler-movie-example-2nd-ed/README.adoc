@@ -14,3 +14,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** remove `play` parameter
 *** extract `playFor(performance)`
 *** inline `play` in `playFor(performance)`
+*** inline `play` in `statement(invoice, plays)`

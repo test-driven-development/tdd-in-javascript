@@ -15,3 +15,5 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 *** extract `playFor(performance)`
 *** inline `play` in `playFor(performance)`
 *** inline `play` in `statement(invoice, plays)`
+*** change signature to remove `play` parameter in `amountFor(performance, play)`
+**** calculate `play` from `performance` in `amountFor` using `playFor(performance)`

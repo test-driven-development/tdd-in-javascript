@@ -1,7 +1,6 @@
 export function statement(invoice, plays) {
   function playFor(performance) {
-    const play = plays[performance['playID']]
-    return play
+    return plays[performance['playID']]
   }
 
   function amountFor(performance, play) {

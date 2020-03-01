@@ -8,8 +8,9 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 - learn the value of an automated suite of unit tests
 - reinforce membership in the _limited red society_
 - follow the steps in link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
-** extract switch statement
-** rename thisAmount
-** rename perf
-** remove play parameter
-*** extract playFor(performance)
+** extract `switch statement`
+** rename `thisAmount`
+** rename `perf`
+** remove `play` parameter
+*** extract `playFor(performance)`
+*** inline `play` in `playFor(performance)`

@@ -1,4 +1,9 @@
 export function statement(invoice, plays) {
+  function playFor(performance) {
+    const play = plays[performance['playID']]
+    return play
+  }
+
   function amountFor(performance, play) {
     let result = 0
     switch (play.type) {
@@ -32,7 +37,7 @@ export function statement(invoice, plays) {
   }).format
 
   for (let performance of invoice['performances']) {
-    const play = plays[performance['playID']]
+    const play = playFor(performance)
     let thisAmount = amountFor(performance, play)
 
     // add volume credits

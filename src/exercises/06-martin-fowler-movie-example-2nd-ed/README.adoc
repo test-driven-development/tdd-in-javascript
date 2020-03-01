@@ -11,3 +11,5 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** extract switch statement
 ** rename thisAmount
 ** rename perf
+** remove play parameter
+*** extract playFor(performance)

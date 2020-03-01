@@ -6,7 +6,7 @@ the canary (in a coal mine) test
 
 http://bit.ly/tdd-online-instruction-01-canary-draft-01[video-draft]
 
-*objectives:*
+.*objectives:*
 
 * general test environment
 * test suite

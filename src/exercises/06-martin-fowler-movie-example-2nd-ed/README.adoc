@@ -19,3 +19,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 **** calculate `play` from `performance` in `amountFor` using `playFor(performance)`
 **** change signature to remove `play` from `amountFor`
 ** inline `thisAmount`
+** extract `volumeCreditsFor(performance)`

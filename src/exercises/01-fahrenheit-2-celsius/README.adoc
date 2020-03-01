@@ -6,7 +6,7 @@ first test - fahrenheit to celsius conversion
 
 http://bit.ly/tdd-online-instruction-02-fahrenheit-2-celsius-draft-01[video-draft]
 
-*objectives:*
+.*objectives:*
 
 * tdd workflow
 * tdd is fundamentally code design

@@ -1,19 +1,19 @@
 export function statement(invoice, plays) {
-  function amountFor(perf, play) {
+  function amountFor(performance, play) {
     let result = 0
     switch (play.type) {
       case 'tragedy':
         result = 40000
-        if (perf['audience'] > 30) {
-          result += 1000 * (perf['audience'] - 30)
+        if (performance['audience'] > 30) {
+          result += 1000 * (performance['audience'] - 30)
         }
         break
       case 'comedy':
         result = 30000
-        if (perf['audience'] > 20) {
-          result += 10000 + 500 * (perf['audience'] - 20)
+        if (performance['audience'] > 20) {
+          result += 10000 + 500 * (performance['audience'] - 20)
         }
-        result += 300 * perf['audience']
+        result += 300 * performance['audience']
         break
       default:
         throw new Error(`unknown type: ${play.type}`)
@@ -31,19 +31,19 @@ export function statement(invoice, plays) {
     minimumFractionDigits: 2,
   }).format
 
-  for (let perf of invoice['performances']) {
-    const play = plays[perf['playID']]
-    let thisAmount = amountFor(perf, play)
+  for (let performance of invoice['performances']) {
+    const play = plays[performance['playID']]
+    let thisAmount = amountFor(performance, play)
 
     // add volume credits
-    volumeCredits += Math.max(perf['audience'] - 30, 0)
+    volumeCredits += Math.max(performance['audience'] - 30, 0)
     // add extra credit for every ten comedy attendees
     if (play.type === 'comedy')
-      volumeCredits += Math.floor(perf['audience'] / 5)
+      volumeCredits += Math.floor(performance['audience'] / 5)
 
     // print line for this order
     result += `  ${play.name}: ${format(thisAmount / 100)} (${
-      perf['audience']
+      performance['audience']
     } seats)\n`
     totalAmount += thisAmount
   }

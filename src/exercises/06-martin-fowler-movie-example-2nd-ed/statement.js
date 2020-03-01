@@ -3,7 +3,7 @@ export function statement(invoice, plays) {
     return plays[performance['playID']]
   }
 
-  function amountFor(performance, play) {
+  function amountFor(performance) {
     let result = 0
     switch (playFor(performance).type) {
       case 'tragedy':
@@ -36,7 +36,7 @@ export function statement(invoice, plays) {
   }).format
 
   for (let performance of invoice['performances']) {
-    let thisAmount = amountFor(performance, playFor(performance))
+    let thisAmount = amountFor(performance)
 
     // add volume credits
     volumeCredits += Math.max(performance['audience'] - 30, 0)

@@ -9,3 +9,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 - reinforce membership in the _limited red society_
 - follow the steps in link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** extract switch statement
+** rename thisAmount

@@ -26,3 +26,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 *** isolate `volumeCredits` calculations in its own loop
 *** move `volumeCredits` variable adjacent to calculation
 *** replace `volumeCredits` with `totalVolumeCredits()`
+*** inline `volumeCredits`

@@ -47,7 +47,6 @@ export function statement(invoice, plays) {
     return volumeCredits
   }
 
-  let totalAmount = 0
   let result = `Statement for ${invoice['customer']}\n`
   for (let performance of invoice['performances']) {
     // print line for this order
@@ -56,6 +55,7 @@ export function statement(invoice, plays) {
     )} (${performance['audience']} seats)\n`
   }
 
+  let totalAmount = 0
   for (let performance of invoice['performances']) {
     totalAmount += amountFor(performance)
   }

@@ -39,14 +39,17 @@ export function statement(invoice, plays) {
       minimumFractionDigits: 2,
     }).format(number / 100)
   }
+  function totalVolumeCredits() {
+    let volumeCredits = 0
+    for (let performance of invoice['performances']) {
+      volumeCredits += volumeCreditsFor(performance)
+    }
+    return volumeCredits
+  }
 
   let totalAmount = 0
   let result = `Statement for ${invoice['customer']}\n`
-
-  let volumeCredits = 0
-  for (let performance of invoice['performances']) {
-    volumeCredits += volumeCreditsFor(performance)
-  }
+  let volumeCredits = totalVolumeCredits()
 
   for (let performance of invoice['performances']) {
     // print line for this order
@@ -55,6 +58,7 @@ export function statement(invoice, plays) {
     )} (${performance['audience']} seats)\n`
     totalAmount += amountFor(performance)
   }
+
   result += `Amount owed is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredits} credits\n`
   return result

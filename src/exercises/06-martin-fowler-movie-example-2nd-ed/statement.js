@@ -32,7 +32,7 @@ export function statement(invoice, plays) {
 
     return volumeCredits
   }
-  function format(number) {
+  function usd(number) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -48,12 +48,12 @@ export function statement(invoice, plays) {
     volumeCredits += volumeCreditsFor(performance)
 
     // print line for this order
-    result += `  ${playFor(performance).name}: ${format(
+    result += `  ${playFor(performance).name}: ${usd(
       amountFor(performance),
     )} (${performance['audience']} seats)\n`
     totalAmount += amountFor(performance)
   }
-  result += `Amount owed is ${format(totalAmount)}\n`
+  result += `Amount owed is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredits} credits\n`
   return result
 }

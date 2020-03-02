@@ -21,3 +21,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** inline `thisAmount`
 ** extract `volumeCreditsFor(performance)`
 ** replace `format` constant with `function format(number)`
+** rename `format` to `usd`

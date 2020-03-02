@@ -62,9 +62,7 @@ export function statement(invoice, plays) {
     )} (${performance['audience']} seats)\n`
   }
 
-  let totalAmount = amountTotal()
-
-  result += `Amount owed is ${usd(totalAmount)}\n`
+  result += `Amount owed is ${usd(amountTotal())}\n`
   result += `You earned ${totalVolumeCredits()} credits\n`
   return result
 }

@@ -31,3 +31,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** extract the code that produces output to `renderPlainText`
 ** change signature to make parameter order consistent
 ** introduce a config parameter
+** put `invoice.customer` on the config and use it in `renderPlainText`

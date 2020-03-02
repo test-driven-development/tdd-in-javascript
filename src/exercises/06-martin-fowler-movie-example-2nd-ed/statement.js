@@ -1,5 +1,6 @@
 export function statement(invoice, plays) {
   const config = {}
+  config.customer = invoice.customer
   return renderPlainText(invoice, plays, config)
 }
 
@@ -59,7 +60,7 @@ function renderPlainText(invoice, plays, config) {
     return totalAmount
   }
 
-  let result = `Statement for ${invoice['customer']}\n`
+  let result = `Statement for ${config.customer}\n`
   for (let performance of invoice['performances']) {
     // print line for this order
     result += `  ${playFor(performance).name}: ${usd(

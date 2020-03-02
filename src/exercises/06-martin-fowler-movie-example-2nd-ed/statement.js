@@ -1,4 +1,8 @@
 export function statement(invoice, plays) {
+  return renderPlainText(plays, invoice)
+}
+
+function renderPlainText(plays, invoice) {
   function playFor(performance) {
     return plays[performance['playID']]
   }
@@ -56,6 +60,7 @@ export function statement(invoice, plays) {
 
   let result = `Statement for ${invoice['customer']}\n`
   for (let performance of invoice['performances']) {
+    // print line for this order
     result += `  ${playFor(performance).name}: ${usd(
       amountFor(performance),
     )} (${performance['audience']} seats)\n`

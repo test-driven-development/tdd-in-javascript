@@ -1,17 +1,21 @@
 export function statement(invoice, plays) {
+  function playFor(performance) {
+    return plays[performance['playID']]
+  }
   const config = {}
   config.customer = invoice.customer
-  config.performances = invoice.performances.map(p => ({...p}))
+  config.performances = invoice.performances.map(p => {
+    const performance = {...p}
+    performance.play = playFor(performance)
+    return performance
+  })
   return renderPlainText(invoice, plays, config)
 }
 
 function renderPlainText(invoice, plays, config) {
-  function playFor(performance) {
-    return plays[performance['playID']]
-  }
   function amountFor(performance) {
     let result = 0
-    switch (playFor(performance).type) {
+    switch (performance.play.type) {
       case 'tragedy':
         result = 40000
         if (performance['audience'] > 30) {
@@ -26,7 +30,7 @@ function renderPlainText(invoice, plays, config) {
         result += 300 * performance['audience']
         break
       default:
-        throw new Error(`unknown type: ${playFor(performance).type}`)
+        throw new Error(`unknown type: ${performance.play.type}`)
     }
 
     return result
@@ -34,7 +38,7 @@ function renderPlainText(invoice, plays, config) {
   function volumeCreditsFor(performance) {
     let volumeCredits = 0
     volumeCredits += Math.max(performance['audience'] - 30, 0)
-    if (playFor(performance).type === 'comedy')
+    if (performance.play.type === 'comedy')
       volumeCredits += Math.floor(performance['audience'] / 5)
 
     return volumeCredits
@@ -64,9 +68,9 @@ function renderPlainText(invoice, plays, config) {
   let result = `Statement for ${config.customer}\n`
   for (let performance of config.performances) {
     // print line for this order
-    result += `  ${playFor(performance).name}: ${usd(
-      amountFor(performance),
-    )} (${performance['audience']} seats)\n`
+    result += `  ${performance.play.name}: ${usd(amountFor(performance))} (${
+      performance['audience']
+    } seats)\n`
   }
 
   result += `Amount owed is ${usd(totalAmount())}\n`

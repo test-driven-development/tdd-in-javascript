@@ -1,4 +1,9 @@
 export function statement(invoice, plays) {
+  const config = configure(plays, invoice)
+  return renderPlainText(invoice, plays, config)
+}
+
+function configure(plays, invoice) {
   function playFor(performance) {
     return plays[performance['playID']]
   }
@@ -54,7 +59,7 @@ export function statement(invoice, plays) {
   })
   config.totalVolumeCredits = totalVolumeCredits(config.performances)
   config.totalAmount = totalAmount(config.performances)
-  return renderPlainText(invoice, plays, config)
+  return config
 }
 
 function renderPlainText(invoice, plays, config) {

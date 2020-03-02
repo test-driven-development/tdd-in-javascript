@@ -24,19 +24,6 @@ export function statement(invoice, plays) {
 
     return result
   }
-
-  const config = {}
-  config.customer = invoice.customer
-  config.performances = invoice.performances.map(p => {
-    const performance = {...p}
-    performance.play = playFor(performance)
-    performance.amount = amountFor(performance)
-    return performance
-  })
-  return renderPlainText(invoice, plays, config)
-}
-
-function renderPlainText(invoice, plays, config) {
   function volumeCreditsFor(performance) {
     let volumeCredits = 0
     volumeCredits += Math.max(performance['audience'] - 30, 0)
@@ -45,6 +32,20 @@ function renderPlainText(invoice, plays, config) {
 
     return volumeCredits
   }
+
+  const config = {}
+  config.customer = invoice.customer
+  config.performances = invoice.performances.map(p => {
+    const performance = {...p}
+    performance.play = playFor(performance)
+    performance.amount = amountFor(performance)
+    performance.volumeCredits = volumeCreditsFor(performance)
+    return performance
+  })
+  return renderPlainText(invoice, plays, config)
+}
+
+function renderPlainText(invoice, plays, config) {
   function usd(number) {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -55,7 +56,7 @@ function renderPlainText(invoice, plays, config) {
   function totalVolumeCredits() {
     let volumeCredits = 0
     for (let performance of config.performances) {
-      volumeCredits += volumeCreditsFor(performance)
+      volumeCredits += performance.volumeCredits
     }
     return volumeCredits
   }

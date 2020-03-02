@@ -1,8 +1,8 @@
 export function statement(invoice, plays) {
-  return renderPlainText(plays, invoice)
+  return renderPlainText(invoice, plays)
 }
 
-function renderPlainText(plays, invoice) {
+function renderPlainText(invoice, plays) {
   function playFor(performance) {
     return plays[performance['playID']]
   }

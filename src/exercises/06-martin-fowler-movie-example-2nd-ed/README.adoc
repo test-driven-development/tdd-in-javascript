@@ -29,3 +29,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 *** inline `volumeCredits`
 ** extract `totalAmount()`
 ** extract the code that produces output to `renderPlainText`
+** change signature to make parameter order consistent

@@ -36,3 +36,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 *** put `invoice.performances` on the config and use it in `renderPlainText`
 *** remove the `invoice` parameter
 ** map over the `invoice.performances` array to configure the individual `performance` items
+*** create a shallow clone of each `performance` item

@@ -22,5 +22,6 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** extract `volumeCreditsFor(performance)`
 ** replace `format` constant with `function format(number)`
 ** rename `format` to `usd`
-** extract `volumeCredit()`
-*** isolate `volumeCredit` calculations in its own loop
+** extract `volumeCredits()`
+*** isolate `volumeCredits` calculations in its own loop
+*** move `volumeCredits` variable adjacent to calculation

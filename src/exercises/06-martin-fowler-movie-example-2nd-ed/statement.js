@@ -46,7 +46,9 @@ export function statement(invoice, plays) {
 
   for (let performance of invoice['performances']) {
     volumeCredits += volumeCreditsFor(performance)
+  }
 
+  for (let performance of invoice['performances']) {
     // print line for this order
     result += `  ${playFor(performance).name}: ${usd(
       amountFor(performance),

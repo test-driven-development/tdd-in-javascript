@@ -32,19 +32,15 @@ export function statement(invoice, plays) {
 
     return volumeCredits
   }
-  function totalVolumeCredits() {
-    let volumeCredits = 0
-    for (let performance of config.performances) {
-      volumeCredits += performance.volumeCredits
-    }
-    return volumeCredits
+  function totalVolumeCredits(performances) {
+    return performances.reduce((acc, p) => {
+      return p.volumeCredits + acc
+    }, 0)
   }
-  function totalAmount() {
-    let totalAmount = 0
-    for (let performance of config.performances) {
-      totalAmount += performance.amount
-    }
-    return totalAmount
+  function totalAmount(performances) {
+    return performances.reduce((acc, p) => {
+      return p.amount + acc
+    }, 0)
   }
 
   const config = {}
@@ -56,8 +52,8 @@ export function statement(invoice, plays) {
     performance.volumeCredits = volumeCreditsFor(performance)
     return performance
   })
-  config.totalVolumeCredits = totalVolumeCredits()
-  config.totalAmount = totalAmount()
+  config.totalVolumeCredits = totalVolumeCredits(config.performances)
+  config.totalAmount = totalAmount(config.performances)
   return renderPlainText(invoice, plays, config)
 }
 

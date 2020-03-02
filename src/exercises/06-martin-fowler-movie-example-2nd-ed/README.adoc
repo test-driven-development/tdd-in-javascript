@@ -32,5 +32,6 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** change signature to make parameter order consistent
 ** introduce a config parameter
 ** put `invoice.customer` on the config and use it in `renderPlainText`
-** to remove the invoice parameter on `renderPlainText`
+** to remove the `invoice` parameter on `renderPlainText`
 *** put `invoice.performances` on the config and use it in `renderPlainText`
+*** remove the `invoice` parameter

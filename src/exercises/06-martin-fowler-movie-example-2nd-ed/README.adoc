@@ -20,3 +20,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 **** change signature to remove `play` from `amountFor`
 ** inline `thisAmount`
 ** extract `volumeCreditsFor(performance)`
+** replace `format` constant with `function format(number)`

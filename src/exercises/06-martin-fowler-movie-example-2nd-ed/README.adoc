@@ -44,3 +44,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 ** install `totalVolumeCredits` and `totalAmount` on the `config`
 ** refine summations for totals with `reduce`
 ** extract a `configure` function
+** inline `configure` 

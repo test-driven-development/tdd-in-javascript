@@ -1,6 +1,5 @@
 export function statement(invoice, plays) {
-  const config = configure(plays, invoice)
-  return renderPlainText(invoice, plays, config)
+  return renderPlainText(invoice, plays, configure(plays, invoice))
 }
 
 function configure(plays, invoice) {

@@ -2,17 +2,6 @@ export function statement(invoice, plays) {
   function playFor(performance) {
     return plays[performance['playID']]
   }
-  const config = {}
-  config.customer = invoice.customer
-  config.performances = invoice.performances.map(p => {
-    const performance = {...p}
-    performance.play = playFor(performance)
-    return performance
-  })
-  return renderPlainText(invoice, plays, config)
-}
-
-function renderPlainText(invoice, plays, config) {
   function amountFor(performance) {
     let result = 0
     switch (performance.play.type) {
@@ -35,6 +24,19 @@ function renderPlainText(invoice, plays, config) {
 
     return result
   }
+
+  const config = {}
+  config.customer = invoice.customer
+  config.performances = invoice.performances.map(p => {
+    const performance = {...p}
+    performance.play = playFor(performance)
+    performance.amount = amountFor(performance)
+    return performance
+  })
+  return renderPlainText(invoice, plays, config)
+}
+
+function renderPlainText(invoice, plays, config) {
   function volumeCreditsFor(performance) {
     let volumeCredits = 0
     volumeCredits += Math.max(performance['audience'] - 30, 0)
@@ -60,7 +62,7 @@ function renderPlainText(invoice, plays, config) {
   function totalAmount() {
     let totalAmount = 0
     for (let performance of config.performances) {
-      totalAmount += amountFor(performance)
+      totalAmount += performance.amount
     }
     return totalAmount
   }
@@ -68,7 +70,7 @@ function renderPlainText(invoice, plays, config) {
   let result = `Statement for ${config.customer}\n`
   for (let performance of config.performances) {
     // print line for this order
-    result += `  ${performance.play.name}: ${usd(amountFor(performance))} (${
+    result += `  ${performance.play.name}: ${usd(performance.amount)} (${
       performance['audience']
     } seats)\n`
   }

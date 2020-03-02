@@ -39,3 +39,4 @@ link:Refactoring-A-First-Example.pdf[Martin Fowler Movie Example (2nd ed.)]
 *** create a shallow clone of each `performance` item
 *** install the play on each `performance` item
 *** use `performance.play` in `renderPlainText`
+** put `amount` on the `performance` clone and use in `renderPlainText`

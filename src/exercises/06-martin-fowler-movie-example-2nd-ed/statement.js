@@ -32,27 +32,6 @@ export function statement(invoice, plays) {
 
     return volumeCredits
   }
-
-  const config = {}
-  config.customer = invoice.customer
-  config.performances = invoice.performances.map(p => {
-    const performance = {...p}
-    performance.play = playFor(performance)
-    performance.amount = amountFor(performance)
-    performance.volumeCredits = volumeCreditsFor(performance)
-    return performance
-  })
-  return renderPlainText(invoice, plays, config)
-}
-
-function renderPlainText(invoice, plays, config) {
-  function usd(number) {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-    }).format(number / 100)
-  }
   function totalVolumeCredits() {
     let volumeCredits = 0
     for (let performance of config.performances) {
@@ -68,6 +47,29 @@ function renderPlainText(invoice, plays, config) {
     return totalAmount
   }
 
+  const config = {}
+  config.customer = invoice.customer
+  config.performances = invoice.performances.map(p => {
+    const performance = {...p}
+    performance.play = playFor(performance)
+    performance.amount = amountFor(performance)
+    performance.volumeCredits = volumeCreditsFor(performance)
+    return performance
+  })
+  config.totalVolumeCredits = totalVolumeCredits()
+  config.totalAmount = totalAmount()
+  return renderPlainText(invoice, plays, config)
+}
+
+function renderPlainText(invoice, plays, config) {
+  function usd(number) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+    }).format(number / 100)
+  }
+
   let result = `Statement for ${config.customer}\n`
   for (let performance of config.performances) {
     // print line for this order
@@ -76,7 +78,7 @@ function renderPlainText(invoice, plays, config) {
     } seats)\n`
   }
 
-  result += `Amount owed is ${usd(totalAmount())}\n`
-  result += `You earned ${totalVolumeCredits()} credits\n`
+  result += `Amount owed is ${usd(config.totalAmount)}\n`
+  result += `You earned ${config.totalVolumeCredits} credits\n`
   return result
 }

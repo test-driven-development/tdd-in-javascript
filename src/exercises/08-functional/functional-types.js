@@ -54,4 +54,13 @@ const First = x => ({
   toString: () => `First(${x})`,
 })
 
-export {Box, Right, Left, fromNullable, tryCatch, Sum, All, First}
+export {
+  Box,
+  Right,
+  Left,
+  fromNullable,
+  tryCatch,
+  Sum,
+  All,
+  First,
+}

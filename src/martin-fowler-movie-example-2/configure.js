@@ -76,7 +76,10 @@ export function configure(plays, invoice) {
 
   function configurePerformance(p) {
     const performance = shallowClone(p)
-    const calculator = calculatorFactoryMake(performance, playFor(performance))
+    const calculator = calculatorFactoryMake(
+      performance,
+      playFor(performance),
+    )
     performance.play = calculator.play
     performance.amount = calculator.amount
     performance.volumeCredits = calculator.volumeCredits
@@ -85,8 +88,12 @@ export function configure(plays, invoice) {
 
   const config = {}
   config.customer = invoice.customer
-  config.performances = invoice.performances.map(configurePerformance)
-  config.totalVolumeCredits = totalVolumeCredits(config.performances)
+  config.performances = invoice.performances.map(
+    configurePerformance,
+  )
+  config.totalVolumeCredits = totalVolumeCredits(
+    config.performances,
+  )
   config.total = total(config.performances)
   return config
 }

@@ -7,7 +7,9 @@ import fs from 'fs'
 describe.skip('composable error handling', () => {
   it('getPort', () => {
     const getPort = () =>
-      tryCatch(() => fs.readFileSync('server/08-functional/config.json'))
+      tryCatch(() =>
+        fs.readFileSync('server/08-functional/config.json'),
+      )
         .chain(c => tryCatch(() => JSON.parse(c)))
         .fold(
           e => 3000,
@@ -19,7 +21,11 @@ describe.skip('composable error handling', () => {
 
   it('getPort with error', () => {
     const getPort = () =>
-      tryCatch(() => fs.readFileSync('server/08-functional/config-error.json'))
+      tryCatch(() =>
+        fs.readFileSync(
+          'server/08-functional/config-error.json',
+        ),
+      )
         .chain(c => tryCatch(() => JSON.parse(c)))
         .fold(
           e => 3000,

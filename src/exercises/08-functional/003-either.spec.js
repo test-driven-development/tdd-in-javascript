@@ -7,12 +7,20 @@ const findColor = name =>
   ({red: '#ff4444', blue: '#3b5998', yellow: '#fff68f'}[name])
 
 const findEitherColor = name => {
-  const found = {red: '#ff4444', blue: '#3b5998', yellow: '#fff68f'}[name]
+  const found = {
+    red: '#ff4444',
+    blue: '#3b5998',
+    yellow: '#fff68f',
+  }[name]
   return found ? Right(found) : Left(null)
 }
 
 const findNullableColor = name =>
-  fromNullable({red: '#ff4444', blue: '#3b5998', yellow: '#fff68f'}[name])
+  fromNullable(
+    {red: '#ff4444', blue: '#3b5998', yellow: '#fff68f'}[
+      name
+    ],
+  )
 
 describe('either', () => {
   it('right runs the mapped function and puts result back in the box', () => {

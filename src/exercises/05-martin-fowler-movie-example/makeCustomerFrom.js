@@ -47,20 +47,30 @@ let makeCustomerFrom = name => {
         frequentRenterPoints++
 
         // add bonus for a two day new release rental
-        if (rental.movie.priceCode === NEW_RELEASE && rental.daysRented > 1)
+        if (
+          rental.movie.priceCode === NEW_RELEASE &&
+          rental.daysRented > 1
+        )
           frequentRenterPoints++
 
         // show figures for this rental
         statement +=
-          '\t' + rental.movie.title + '\t' + subTotal.toString(10) + '\n'
+          '\t' +
+          rental.movie.title +
+          '\t' +
+          subTotal.toString(10) +
+          '\n'
 
         total += subTotal
       }
 
       // add footer lines
-      statement += 'Amount owed is ' + total.toString(10) + '\n'
       statement +=
-        'You earned ' + String(frequentRenterPoints) + ' frequent renter points'
+        'Amount owed is ' + total.toString(10) + '\n'
+      statement +=
+        'You earned ' +
+        String(frequentRenterPoints) +
+        ' frequent renter points'
 
       return statement
     },

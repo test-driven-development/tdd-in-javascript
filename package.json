@@ -119,5 +119,9 @@
     "trailingComma": "all",
     "useTabs": false,
     "xmlWhitespaceSensitivity": "ignore"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "immutable-ext": "^1.1.5"
   }
 }

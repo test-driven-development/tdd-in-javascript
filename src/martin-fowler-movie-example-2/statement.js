@@ -2,7 +2,11 @@ import {configure} from './configure'
 import {usd} from './usd'
 
 export function statement(invoice, plays) {
-  return renderPlainText(invoice, plays, configure(plays, invoice))
+  return renderPlainText(
+    invoice,
+    plays,
+    configure(plays, invoice),
+  )
 }
 
 function renderPlainText(invoice, plays, config) {
@@ -14,7 +18,9 @@ function renderPlainText(invoice, plays, config) {
     const amount = performance.amount
     const audience = performance.audience
 
-    result += `  ${play}: ${usd(amount / 100)} (${audience} seats)\n`
+    result += `  ${play}: ${usd(
+      amount / 100,
+    )} (${audience} seats)\n`
   }
 
   result += `Amount owed is ${usd(config.total / 100)}\n`

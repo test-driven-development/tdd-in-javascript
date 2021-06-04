@@ -53,17 +53,35 @@ describe("martin fowler's movie refactoring example", () => {
       'Amount owed is 30\n' +
       'You earned 11 frequent renter points'
 
-    customer.addRental(makeRentalFrom(childrens1, DAYS_RENTED_IS_1))
-    customer.addRental(makeRentalFrom(childrens2, DAYS_RENTED_IS_2))
-    customer.addRental(makeRentalFrom(childrens3, DAYS_RENTED_IS_3))
+    customer.addRental(
+      makeRentalFrom(childrens1, DAYS_RENTED_IS_1),
+    )
+    customer.addRental(
+      makeRentalFrom(childrens2, DAYS_RENTED_IS_2),
+    )
+    customer.addRental(
+      makeRentalFrom(childrens3, DAYS_RENTED_IS_3),
+    )
 
-    customer.addRental(makeRentalFrom(regular1, DAYS_RENTED_IS_1))
-    customer.addRental(makeRentalFrom(regular2, DAYS_RENTED_IS_2))
-    customer.addRental(makeRentalFrom(regular3, DAYS_RENTED_IS_3))
+    customer.addRental(
+      makeRentalFrom(regular1, DAYS_RENTED_IS_1),
+    )
+    customer.addRental(
+      makeRentalFrom(regular2, DAYS_RENTED_IS_2),
+    )
+    customer.addRental(
+      makeRentalFrom(regular3, DAYS_RENTED_IS_3),
+    )
 
-    customer.addRental(makeRentalFrom(newRelease1, DAYS_RENTED_IS_1))
-    customer.addRental(makeRentalFrom(newRelease2, DAYS_RENTED_IS_2))
-    customer.addRental(makeRentalFrom(newRelease3, DAYS_RENTED_IS_3))
+    customer.addRental(
+      makeRentalFrom(newRelease1, DAYS_RENTED_IS_1),
+    )
+    customer.addRental(
+      makeRentalFrom(newRelease2, DAYS_RENTED_IS_2),
+    )
+    customer.addRental(
+      makeRentalFrom(newRelease3, DAYS_RENTED_IS_3),
+    )
 
     expected.should.equal(customer.statement())
   })

@@ -42,12 +42,16 @@ describe(`html statement`, () => {
   })
 
   it(`prints the table start`, () => {
-    htmlStatement(invoices[0], plays).should.containEql(`<table>\n`)
+    htmlStatement(invoices[0], plays).should.containEql(
+      `<table>\n`,
+    )
   })
 
   it(`prints the header row`, () => {
     const headerRow = `<tr><th>play</th><th>seats</th><th>cost</th></tr>\n`
-    htmlStatement(invoices[0], plays).should.containEql(headerRow)
+    htmlStatement(invoices[0], plays).should.containEql(
+      headerRow,
+    )
   })
 
   it(`prints the first row play and seats`, () => {
@@ -63,17 +67,23 @@ describe(`html statement`, () => {
   })
 
   it(`prints the table end`, () => {
-    htmlStatement(invoices[0], plays).should.containEql(`</table>\n`)
+    htmlStatement(invoices[0], plays).should.containEql(
+      `</table>\n`,
+    )
   })
 
   it(`prints the total in the footer`, () => {
     const totalFooter = `<p>Amount owed is <em>$1,730.00</em></p>\n`
-    htmlStatement(invoices[0], plays).should.containEql(totalFooter)
+    htmlStatement(invoices[0], plays).should.containEql(
+      totalFooter,
+    )
   })
 
   it(`prints the total volume credits in the footer`, () => {
     const creditsFooter = `<p>You earned <em>47</em> credits</p>\n`
-    htmlStatement(invoices[0], plays).should.containEql(creditsFooter)
+    htmlStatement(invoices[0], plays).should.containEql(
+      creditsFooter,
+    )
   })
 
   it(`prints the whole statement`, () => {

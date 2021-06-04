@@ -3,8 +3,12 @@ import {Right, Left} from './functional-types'
 
 describe('either example collection', () => {
   describe('get preferences', () => {
-    const user = {premium: null, preferences: 'the user preferences'}
-    const loadPrefs = preferences => `loadPrefs(${preferences})`
+    const user = {
+      premium: null,
+      preferences: 'the user preferences',
+    }
+    const loadPrefs = preferences =>
+      `loadPrefs(${preferences})`
     const defaultPrefs = {prefs: 'default prefs'}
 
     describe('imperative', () => {
@@ -15,12 +19,16 @@ describe('either example collection', () => {
 
       it('user is premium', () => {
         user.premium = 'premium'
-        getPrefs(user).should.deepEqual('loadPrefs(the user preferences)')
+        getPrefs(user).should.deepEqual(
+          'loadPrefs(the user preferences)',
+        )
       })
 
       it('does not have a user', () => {
         user.premium = null
-        getPrefs(user).should.deepEqual({prefs: 'default prefs'})
+        getPrefs(user).should.deepEqual({
+          prefs: 'default prefs',
+        })
       })
     })
 
@@ -35,12 +43,16 @@ describe('either example collection', () => {
 
       it('user is premium', () => {
         user.premium = 'premium'
-        getPrefs(user).should.deepEqual('loadPrefs(the user preferences)')
+        getPrefs(user).should.deepEqual(
+          'loadPrefs(the user preferences)',
+        )
       })
 
       it('does not have a user', () => {
         user.premium = null
-        getPrefs(user).should.deepEqual({prefs: 'default prefs'})
+        getPrefs(user).should.deepEqual({
+          prefs: 'default prefs',
+        })
       })
     })
   })

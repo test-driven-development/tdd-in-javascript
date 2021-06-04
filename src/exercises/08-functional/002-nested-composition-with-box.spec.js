@@ -2,7 +2,8 @@
 
 import {Box} from './functional-types'
 
-const moneyToFloat = s => Box(s.replace(/\$/g, '')).map(s => parseFloat(s))
+const moneyToFloat = s =>
+  Box(s.replace(/\$/g, '')).map(s => parseFloat(s))
 
 const percentToFloat = s =>
   Box(s.replace(/&/g, ''))
@@ -11,7 +12,9 @@ const percentToFloat = s =>
 
 const applyDiscount = (price, discount) =>
   moneyToFloat(price).fold(cost =>
-    percentToFloat(discount).fold(savings => cost - cost * savings),
+    percentToFloat(discount).fold(
+      savings => cost - cost * savings,
+    ),
   )
 
 describe('nested composition with box', () => {

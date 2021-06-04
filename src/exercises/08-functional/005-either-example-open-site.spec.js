@@ -5,7 +5,8 @@ describe('either example collection', () => {
   describe('open site', () => {
     let currentUser
     const showLogin = () => 'showLogin()'
-    const renderPage = currentUser => `renderPage(${currentUser})`
+    const renderPage = currentUser =>
+      `renderPage(${currentUser})`
 
     describe('imperative', () => {
       const openSite = () => {

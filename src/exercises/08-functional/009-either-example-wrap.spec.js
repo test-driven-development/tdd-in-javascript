@@ -9,20 +9,28 @@ describe.skip('wrap examples', () => {
     const wrapExamples = example => {
       if (example.previewPath) {
         try {
-          example.preview = fs.readFileSync(example.previewPath)
+          example.preview = fs.readFileSync(
+            example.previewPath,
+          )
         } catch (e) {}
       }
       return example
     }
 
     it('wraps examples', () => {
-      const example = {previewPath: 'server/08-functional/config.json'}
-      ;(typeof wrapExamples(example).preview).should.equal('object')
+      const example = {
+        previewPath: 'server/08-functional/config.json',
+      }
+      ;(typeof wrapExamples(example).preview).should.equal(
+        'object',
+      )
     })
 
     it('does not wrap examples', () => {
       const example = {}
-      ;(typeof wrapExamples(example).preview).should.equal('undefined')
+      ;(typeof wrapExamples(example).preview).should.equal(
+        'undefined',
+      )
     })
   })
 
@@ -38,13 +46,19 @@ describe.skip('wrap examples', () => {
         )
 
     it('wraps examples', () => {
-      const example = {previewPath: 'server/08-functional/config.json'}
-      ;(typeof wrapExamples(example).preview).should.equal('object')
+      const example = {
+        previewPath: 'server/08-functional/config.json',
+      }
+      ;(typeof wrapExamples(example).preview).should.equal(
+        'object',
+      )
     })
 
     it('does not wrap examples', () => {
       const example = {}
-      ;(typeof wrapExamples(example).preview).should.equal('undefined')
+      ;(typeof wrapExamples(example).preview).should.equal(
+        'undefined',
+      )
     })
   })
 })

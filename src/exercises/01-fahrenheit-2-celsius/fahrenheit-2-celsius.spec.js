@@ -4,15 +4,18 @@ describe('the canary spec', () => {
   })
 })
 
-function fahrenheit2Celsius() {
-  return 0
+function fahrenheit2Celsius(number) {
+  return ((number - 32) * 5) / 9
 }
 
-describe('fahrenheit to celsius converter', () => {
+describe('a fahrenheit to celsius converter works like this:', () => {
   test('fahrenheit2Celsius(32) = 0', () => {
     fahrenheit2Celsius(32).should.equal(0)
   })
 
-  test.todo('fahrenheit2Celsius(212) = 100')
+  test('fahrenheit2Celsius(212) = 100', () => {
+    fahrenheit2Celsius(212).should.equal(100)
+  })
+
   test.todo('fahrenheit2Celsius(85) = 50')
 })

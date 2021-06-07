@@ -4,8 +4,8 @@ describe('the canary spec', () => {
   })
 })
 
-function fahrenheit2Celsius(number) {
-  return ((number - 32) * 5) / 9
+function fahrenheit2Celsius(degreesF) {
+  return ((degreesF - 32) * 5) / 9
 }
 
 describe('a fahrenheit to celsius converter works like this:', () => {

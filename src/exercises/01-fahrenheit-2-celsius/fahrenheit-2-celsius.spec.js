@@ -1,4 +1,8 @@
+function fahrenheitTocelsius = () => 0
+
 describe('the fahrenheit to celsius converter', () => {
-  test.todo('converts 32° fahrenheit to 0° celsius')
+  test(`converts 32° fahrenheit to 0° celsius`, () => {
+    fahrenheitTocelsius(32).should.equal(0)
+  })
   test.todo('converts 212° fahrenheit to 100° celsius')
 })

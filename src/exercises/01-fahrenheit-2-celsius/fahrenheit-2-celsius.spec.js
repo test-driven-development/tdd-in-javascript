@@ -1,7 +1,5 @@
-function fahrenheitToCelsius(temp) {
-  return ((temp - 32) * 5) / 9
-}
-
+const fahrenheitToCelsius = fahrenheit =>
+  ((fahrenheit - 32) * 5) / 9
 
 describe('the fahrenheit to celsius converter', () => {
   test(`converts 32° fahrenheit to 0° celsius`, () => {

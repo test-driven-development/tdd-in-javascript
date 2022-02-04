@@ -1,3 +1,4 @@
-describe('the canary spec', () => {
-  test.todo('shows the test infrastructure works')
+describe('The fahrenheit to celsius converter', () => {
+  test.todo('converts 32° fahrenheit to 0° celsius')
+  test.todo('converts 212° fahrenheit to 100° celsius')
 })

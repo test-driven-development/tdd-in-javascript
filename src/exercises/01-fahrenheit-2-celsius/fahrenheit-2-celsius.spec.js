@@ -1,4 +1,5 @@
-let fahrenheitToCelsius = fahrenheit => ((fahrenheit - 32) * 5) / 9
+let fahrenheitToCelsius = fahrenheit =>
+  ((fahrenheit - 32) * 5) / 9
 describe('the fahrenheit to celsius converter', () => {
   test('converts 32 to 0 celsius', () => {
     fahrenheitToCelsius(32).should.equal(0)

@@ -1,11 +1,26 @@
+let isPalindrome = phrase => {
+  const isOneWord = phrase.split(' ').length === 1
+
+  const isTheSameForwardAndBackward =
+    phrase ===
+    phrase
+      .split('')
+      .reverse()
+      .join('')
+
+  return isTheSameForwardAndBackward && isOneWord
+}
+
 describe(`the isPalindrome function`, () => {
-  test.todo(`returns "true" for a "level"`)
-  test.todo(`returns "true" for a "radar"`)
-  test.todo(`returns "true" for a "kayak"`)
-  test.todo(`returns "true" for a "madam"`)
-  test.todo(`returns "false" for a "lover"`)
-  test.todo(`returns "false" for a "saint"`)
-  test.todo(`returns "false" for a "heh heh"`)
+  test(`returns "true" for a "level"`, () => {
+    isPalindrome('level').should.be.true()
+  })
+  test(`returns "false" for a "lover"`, () => {
+    isPalindrome('lover').should.be.false()
+  })
+  test(`returns "false" for a "heh heh"`, () => {
+    isPalindrome('heh heh').should.be.false()
+  })
   test.todo(`returns "true" for a "a"`)
   test.todo(`returns "true" for a "e"`)
   test.todo(`returns "false" for a 1`)

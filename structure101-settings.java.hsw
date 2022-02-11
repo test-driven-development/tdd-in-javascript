@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<local-project language="java" version="6.0.18139" xml-version="3" flavor="j2se">
+<local-project language="java" version="6.1.20423" xml-version="3" flavor="j2se">
   <property name="parse-archive-in-archive" value="false" />
   <property name="include-injected-dependency" value="false" />
   <property name="relative-to" value="const(THIS_FILE)" />
@@ -26,5 +26,5 @@
   <restructuring>
     <set version="3" name="Action list 1" hiview="Codemap" active="true" todo="false" list="0" />
   </restructuring>
-  <grid-set sep="." version="6.0.18139" />
+  <grid-set sep="." version="6.1.20423" />
 </local-project>
